@@ -9,7 +9,8 @@ const Dashboard = () => {
       <Sidebar className="h-screen relative top-0"/>
       <div className='w-full'>
         <Header/>
-        <Outlet/>
+        <div><Outlet/></div>
+        
       </div>
       </div>
   )

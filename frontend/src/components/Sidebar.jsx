@@ -144,13 +144,13 @@ export function Sidebar() {
                 <ListItemPrefix>
                   <DocumentPlusIcon strokeWidth={3} className="h-5 w-5 ml-3" />
                 </ListItemPrefix>
-                Create New Job
+                <Link to='/dashboard/post'>Create New Job</Link>
               </ListItem>
               <ListItem>
                 <ListItemPrefix>
                   <PencilSquareIcon strokeWidth={3} className="h-5 w-5 ml-3" />
                 </ListItemPrefix>
-                Manage Job Listings
+                <Link to='/dashboard/joblistings'>Manage Job Listings</Link>
               </ListItem>
             </List>
 

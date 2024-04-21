@@ -9,15 +9,28 @@ const postSchema = mongoose.Schema(
 
     name: {
       type: String,
-      required:true
+      required:true,
+    },
+    title:{
+      type:String,
+      required: true,
     },
     image:{
       type: String,
-      required: false
+      required: false,
     },
     description: {
       type: String,
       required: true
+    },
+    applicants: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref:'User',
+    }],
+    numApplications :{
+      type:Number,
+      required: true,
+      default: 0,
     },
     date: {
       type: Date,
