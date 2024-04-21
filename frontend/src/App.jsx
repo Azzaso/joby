@@ -10,6 +10,8 @@ import PrivateRoute from "./components/PrivateRoute";
 import Account from "./pages/Account";
 import PostCreationScreen from "./pages/admin/PostCreationScreen";
 import JobListings from "./pages/admin/JobListings";
+import ScoutCandidates from "./pages/admin/ScoutCandidates";
+ 
 
 const App = () => {
   return (
@@ -30,6 +32,7 @@ const App = () => {
          <Route path="/dashboard/account" element={<Account/>}/>
          <Route path="/dashboard/post" element={<PostCreationScreen/>}/>
          <Route path="/dashboard/joblistings" element={<JobListings/>}/>
+         <Route path="/dashboard/candidates" element={<ScoutCandidates/>}/>
         </Route>
         </Route>
       </Routes>

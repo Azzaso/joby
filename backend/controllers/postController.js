@@ -20,6 +20,7 @@ const createPost = asyncHandler(async(req,res) => {
     title:title,
     image:image,
     description: description,
+    date: new Date(),
   })
   const post = await newPost.save();
   res.json(post);

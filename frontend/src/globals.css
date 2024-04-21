@@ -9,6 +9,14 @@
   background-repeat: no-repeat;
 }
 
+.truncate-after-sentences {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-height: 1.5; 
+}
+
 @layer base {
   * {
     @apply box-border list-none p-0 m-0 scroll-smooth font-poppins;
