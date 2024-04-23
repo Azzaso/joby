@@ -1,5 +1,5 @@
 import React from 'react'
-import { useGetUsersQuery } from '../../slices/usersApiSlice'
+import { useGetUsersQuery, useDeleteUserMutation } from '../../slices/usersApiSlice'
 import {
   Card,
   Button,
@@ -13,7 +13,20 @@ import { Link } from 'react-router-dom';
 
 const ScoutCandidates = () => {
   const { data, isLoading, error, refetch } = useGetUsersQuery();
-  
+  const [deleteUser, {isLoading:loadingDelete}] = useDeleteUserMutation();
+
+  const deleteHandler = async (id) => {
+    if(window.confirm('Are you sure you want to delete this user ?')){
+      try {
+        await deleteUser(id);
+        refetch();
+        alert('User deleted successfully')
+      } catch (error) {
+        alert(`Error deleting user: ${error.message}`);
+      }
+    }
+  }
+
   return (
     <div >
       <div className='bg-white bg-opacity-15 p-6 flex gap-6'>
@@ -22,6 +35,7 @@ const ScoutCandidates = () => {
       </div>
       <div className='p-6 grid grid-cols-3 gap-4'>
       {data && data.map((user) => (
+       user.role === "Candidate" && (
         <Card className='p-4 h-fit'>
           <CardBody key={user._id} className='flex flex-col'>
           <Typography className='font-poppins text-sm mb-2'></Typography>
@@ -32,11 +46,11 @@ const ScoutCandidates = () => {
           <div className='flex w-full gap-2 justify-center items-center'>
           <Button color='green' variant='gradient' className='font-poppins flex-1'>Contact</Button>
           <Button color='blue' variant='gradient' className='font-poppins flex-1'>View Profile</Button>
-          <Button color='pink' variant='gradient' className='font-poppins flex-1'>Delete</Button>
+          <Button color='pink' variant='gradient' className='font-poppins flex-1' onClick={() => deleteHandler(user._id)}>Delete</Button>
           </div>
           </CardFooter>
         </Card>
-      ))}  
+      )))}  
       </div>
        
      

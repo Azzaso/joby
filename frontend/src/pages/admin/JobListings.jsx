@@ -56,7 +56,7 @@ const JobListings = () => {
         <Button color='pink' variant='gradient' className='text-sm flex  gap-2'><PlusCircleIcon color='white' strokeWidth={3} className="h-5 w-5"/><Link to="/dashboard/post">Create New Job</Link></Button>
       </div>
       <div className='grid grid-cols-4 gap-6 p-6'>
-      {data.map((post) => (
+      {data && data.map((post) => (
         <Card className='p-4 h-fit'>
           <CardBody key={post._id} className='flex flex-col'>
           <Typography className='font-poppins text-sm mb-2'>{postedAt(post.date)}</Typography>
