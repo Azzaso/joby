@@ -11,8 +11,8 @@ import Account from "./pages/Account";
 import PostCreationScreen from "./pages/admin/PostCreationScreen";
 import JobListings from "./pages/admin/JobListings";
 import ScoutCandidates from "./pages/admin/ScoutCandidates";
+import SearchOpportunities from "./pages/candidate/SearchOpportunities";
  
-
 const App = () => {
   return (
     <main className="h-screen flex">
@@ -28,11 +28,14 @@ const App = () => {
         {/*Private Routes*/}
         <Route element={<PrivateRoute/>}>
         <Route element={<Dashboard/>}>
+          {/*Recruiter Routes*/}
          <Route index={true} path="/dashboard" element={<Widget/>}/>
          <Route path="/dashboard/account" element={<Account/>}/>
          <Route path="/dashboard/post" element={<PostCreationScreen/>}/>
          <Route path="/dashboard/joblistings" element={<JobListings/>}/>
          <Route path="/dashboard/candidates" element={<ScoutCandidates/>}/>
+         {/*Recruiter Routes*/}
+         <Route path="/dashboard/search" element={<SearchOpportunities/>}/>
         </Route>
         </Route>
       </Routes>

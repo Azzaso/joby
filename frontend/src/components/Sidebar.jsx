@@ -97,7 +97,7 @@ export function Sidebar() {
                 <ListItemPrefix>
                   <MagnifyingGlassIcon strokeWidth={3} className="h-5 w-5 ml-3" />
                 </ListItemPrefix>
-                Search Opportunities
+                <Link to="/dashboard/search">Search Opportunities</Link>
               </ListItem>
               <ListItem>
                 <ListItemPrefix>

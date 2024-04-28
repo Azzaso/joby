@@ -2,7 +2,8 @@ import React from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { useLogoutMutation } from "../slices/usersApiSlice";
 import { useNavigate } from "react-router-dom";
-import { clearCredentials } from '../slices/authSlice'
+import { clearCredentials } from '../slices/authSlice';
+import Avatar from "./Avatar";
 
 import {
   Navbar,
@@ -235,13 +236,16 @@ export function Header() {
         <div className="hidden gap-2 lg:flex">
           {userInfo ? (
             <>
+            
             <Popover className="bg-white text-blue-gray-500 text-sm font-poppins p-3" >
+              <Avatar fullname={`${userInfo.name}`}/>
             <PopoverHandler>
               <div className="text-white cursor-pointer flex items-center gap-2 py-2 pr-4">{userInfo.name}
               <ChevronDownIcon
                 strokeWidth={2.5}
                 className="hidden h-3 w-3 transition-transform lg:block"
-              /></div>
+              />
+              </div>
               </PopoverHandler>
                <PopoverContent>
                <ListItem color="lightBlue" ripple={true} className="w-full flex gap-2 mb-2">

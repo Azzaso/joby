@@ -12,7 +12,7 @@ const authUser = asyncHandler(async (req, res) => {
  
   if(user && await user.matchPasswords(password)){
     generateToken(res, user._id);
-    res.status(201).json({ message:'User authenticated', name: user.name, email: user.email })
+    res.status(201).json({ message:'User authenticated', _id: user._id, name: user.name, email: user.email, role:user.role });
   }
   else{
     res.status(401);
@@ -124,6 +124,20 @@ const deleteUser =  asyncHandler(async(req,res) => {
   }
 })
 
+//@desc delete user profile
+//route GET /api/users/:id
+//@access PRIVATE
+const getUserInfo = asyncHandler(async(req, res)=>{
+  const user = await User.findById(req.params.id)
+  if(user){
+    res.status(200).json(user)
+  }else{
+    res.status(401);
+    throw new Error('User not found');
+  }
+
+})
 
 
-export {authUser, registerUser, logoutUser, getUserProfile, updateUserProfile, getUsers, deleteUser};
+
+export {authUser, registerUser, logoutUser, getUserProfile, updateUserProfile, getUsers, deleteUser, getUserInfo};
