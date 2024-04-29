@@ -1,24 +1,20 @@
-import { XCircleIcon } from '@heroicons/react/24/outline'
-import { Button } from '@material-tailwind/react'
-import { React, useState } from 'react'
-import {Card} from '@material-tailwind/react'
+import { XMarkIcon } from '@heroicons/react/24/outline'
+import { Button, Dialog, DialogBody, DialogFooter, DialogHeader } from '@material-tailwind/react'
+import React from 'react'
 
-const Popup = ({children, isOpen, onClose}) => {
+const Popup = ({children, open, handleOpen}) => {
 
   return (
-    <Card>
-      {isOpen && (
-        <div className="fixed inset-0 flex justify-center backdrop-blur-sm bg-gray-900 bg-opacity-10 z-50">
-          <div className="bg-white p-4 rounded-lg w-96 h-fit mt-44 shadow-xl">
-            <div className="flex justify-end">
-              <XCircleIcon onClick={onClose}  className="h-6 w-6 cursor-pointer" />
-            </div>
-            <div className="mt-4">{children}</div>
-          </div>
-        </div>
-      )}
-    </Card>
-  )
+    <>
+      <Dialog open={open} handler={handleOpen}>
+        <DialogHeader className='flex justify-between font-poppins'><span className='ml-3'>Applicants</span><XMarkIcon className='h-5 w-5 hover:bg-gray-200 hover:rounded-full hover:cursor-pointer' onClick={handleOpen}/></DialogHeader>
+        <DialogBody>
+          {children}
+        </DialogBody>
+       
+      </Dialog>
+    </>
+  );
 }
 
 export default Popup

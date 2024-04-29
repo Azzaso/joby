@@ -125,7 +125,6 @@ const JobListings = () => {
                 {showPopupIndex === index && isPopupOpen && (
                   <Popup isOpen={true} onClose={closePopup}>
                     <List>
-                      
                       {post.applicants.map((applicantId) => (
                         <ListItem key={applicantId}>
                           <ListItemPrefix>

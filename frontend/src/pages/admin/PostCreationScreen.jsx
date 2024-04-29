@@ -49,7 +49,7 @@ const PostCreationScreen = () => {
            }}
          />
          <Typography variant="h6" color="white" className="-mb-3 font-poppins">
-           Upload Image
+           Category
          </Typography>
          <Input
            size="lg"

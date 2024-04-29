@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import Avatar from "../../components/Avatar";
 import {
   Button,
@@ -6,24 +6,25 @@ import {
   Card,
   CardHeader,
   CardBody,
-  IconButton,
   Input,
-  TypographyProps,
   CardFooter,
+  List,
+  ListItem,
+  ListItemPrefix
 } from "@material-tailwind/react";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import {
   BriefcaseIcon,
-  DocumentMagnifyingGlassIcon,
-  FlagIcon,
   MagnifyingGlassIcon,
 } from "@heroicons/react/24/solid";
 import { useGetPostsQuery } from "../../slices/postsApiSlice";
+import Popup from "../../components/Popup";
+import gradient from "@material-tailwind/react/theme/components/timeline/timelineIconColors/gradient";
 
 function formatDate(dateString) {
   const date = new Date(dateString);
-  const options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', timeZoneName: 'short' };
-  return date.toLocaleDateString('en-US', options);
+  const options = { year: "numeric", month: "long", day: "numeric", hour: "numeric", minute: "numeric", second: "numeric", timeZoneName: "short" };
+  return date.toLocaleDateString("en-US", options);
 }
 
 const TABLE_HEAD = [
@@ -47,15 +48,9 @@ const TABLE_HEAD = [
 
 function ReceivedApplications() {
   const { data, isLoading, error, refetch } = useGetPostsQuery();
-  const [showPopupIndex, setShowPopupIndex] = useState(null);
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState("");
   const [applicantNames, setApplicantNames] = useState({});
-
-  const [isPopupOpen, setIsPopupOpen] = useState(true);
-  const closePopup = () => {
-    setIsPopupOpen(false);
-    
-  };
+  const [openPopups, setOpenPopups] = useState([]);
 
   useEffect(() => {
     const fetchApplicantNames = async () => {
@@ -89,6 +84,22 @@ function ReceivedApplications() {
       console.error("Error fetching user info:", error);
       return "Unknown";
     }
+  };
+
+  const handleOpenPopup = (index) => {
+    setOpenPopups((prevOpenPopups) => {
+      const newOpenPopups = [...prevOpenPopups];
+      newOpenPopups[index] = true;
+      return newOpenPopups;
+    });
+  };
+
+  const handleClosePopup = (index) => {
+    setOpenPopups((prevOpenPopups) => {
+      const newOpenPopups = [...prevOpenPopups];
+      newOpenPopups[index] = false;
+      return newOpenPopups;
+    });
   };
 
   return (
@@ -181,18 +192,36 @@ function ReceivedApplications() {
                           variant="small"
                           className="!font-normal text-gray-600 text-left"
                         >
-                          <div className="mt-3 cursor-pointer flex items-center -space-x-4 overflow-hidden" onClick={() => setShowPopupIndex(index)}>
+                          <div className="mt-3 cursor-pointer flex items-center -space-x-4 overflow-hidden" onClick={() => handleOpenPopup(index)}>
                           {post.applicants.map((applicantId) => (
                           <Avatar key={applicantId} fullname={`${applicantNames[applicantId]}`} />
                           ))}
                           </div>
+                          <Popup open={openPopups[index]} handleOpen={() => handleClosePopup(index)}>
+                      <List>
+                      {post.applicants.map((applicantId) => (
+                        <ListItem key={applicantId} className="flex justify-between" >
+                          
+                          <ListItemPrefix className="flex gap-2">
+                          <Avatar key={applicantId} fullname={`${applicantNames[applicantId]}`} />
+                          <div className='text-gray-900 font-normal'>{`${applicantNames[applicantId]}`}</div>
+                          </ListItemPrefix>
+                          
+                          <div className="flex gap-2 ">
+                          <Button variant="gradient" color='black' className="font-poppins">View Profile</Button>
+                          <Button variant="gradient" color='pink' className="font-poppins">Contact</Button>
+                          </div>
+                        </ListItem>
+                      ))}
+                    </List>
+                    </Popup>
                         </Typography>
                       </td>
                       <td className={classes}>
                         <Typography
                           variant="small"
                           color='black'
-                          className="!font-semibold text-left text-gray-800 bg-pink-100 bg-opacity-50 rounded-md w-fit px-2 font-poppins"
+                          className="!font-semibold text-left text-gray-800 bg-gray-300  rounded-md w-fit px-2 font-poppins"
                         >
                           Category
                         </Typography>
