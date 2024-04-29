@@ -13,12 +13,12 @@ const getPosts = asyncHandler(async(req,res) => {
 //route POST /api/posts/:id
 //@access PRIVATE
 const createPost = asyncHandler(async(req,res) => {
-  const {title, image, description} = req.body
+  const {title, category, description} = req.body
   const newPost = await Post.create({
     user: req.user.id,
     name: req.user.name,
     title:title,
-    image:image,
+    category:category,
     description: description,
     date: new Date(),
   })

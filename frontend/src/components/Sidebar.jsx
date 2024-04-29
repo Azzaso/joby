@@ -179,7 +179,7 @@ export function Sidebar() {
                 <ListItemPrefix>
                   <DocumentArrowDownIcon strokeWidth={3} className="h-5 w-5 ml-3" />
                 </ListItemPrefix>
-                Received Applications
+                <Link to="/dashboard/applications">Received Applications</Link>
               </ListItem>
             </List>
         </>

@@ -48,21 +48,12 @@ const JobListings = () => {
 
   const fetchUserName = async (userId) => {
     try {
-      const response = await fetch(`/api/users/${userId}`); // Assuming this is the API endpoint to fetch user information
+      const response = await fetch(`/api/users/${userId}`);
       const userData = await response.json();
       return userData.name;
     } catch (error) {
       console.error("Error fetching user info:", error);
       return "Unknown";
-    }
-  };
-
-  const applyHandler = async (idPost, idUser) => {
-    try {
-      await applyForPost(idPost, idUser);
-      refetch();
-    } catch (error) {
-      alert(error);
     }
   };
 

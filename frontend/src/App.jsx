@@ -5,13 +5,14 @@ import Home from "./pages/Home";
 import AuthLayout from "./_auth/AuthLayout";
 import LoginForm from "./_auth/forms/LoginForm";
 import Dashboard from "./pages/Dashboard";
-import Widget from "./components/Widget";
 import PrivateRoute from "./components/PrivateRoute";
 import Account from "./pages/Account";
 import PostCreationScreen from "./pages/admin/PostCreationScreen";
 import JobListings from "./pages/admin/JobListings";
 import ScoutCandidates from "./pages/admin/ScoutCandidates";
 import SearchOpportunities from "./pages/candidate/SearchOpportunities";
+import DashboardHome from "./pages/DashboardHome";
+import ReceivedApplications from "./pages/admin/ReceivedApplications";
  
 const App = () => {
   return (
@@ -29,11 +30,12 @@ const App = () => {
         <Route element={<PrivateRoute/>}>
         <Route element={<Dashboard/>}>
           {/*Recruiter Routes*/}
-         <Route index={true} path="/dashboard" element={<Widget/>}/>
+         <Route index={true} path="/dashboard" element={<DashboardHome/>}/>
          <Route path="/dashboard/account" element={<Account/>}/>
          <Route path="/dashboard/post" element={<PostCreationScreen/>}/>
          <Route path="/dashboard/joblistings" element={<JobListings/>}/>
          <Route path="/dashboard/candidates" element={<ScoutCandidates/>}/>
+         <Route path="/dashboard/applications" element={<ReceivedApplications/>}/>
          {/*Recruiter Routes*/}
          <Route path="/dashboard/search" element={<SearchOpportunities/>}/>
         </Route>

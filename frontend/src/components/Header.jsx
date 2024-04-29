@@ -73,21 +73,6 @@ const navListMenuItems = [
     description: "Find the perfect solution for your needs.",
     icon: PhoneIcon,
   },
-  {
-    title: "News",
-    description: "Read insightful articles, tips, and expert opinions.",
-    icon: NewspaperIcon,
-  },
-  {
-    title: "Products",
-    description: "Find the perfect solution for your needs.",
-    icon: RectangleGroupIcon,
-  },
-  {
-    title: "Special Offers",
-    description: "Explore limited-time deals and bundles",
-    icon: TagIcon,
-  },
 ];
  
 function NavListMenu() {
