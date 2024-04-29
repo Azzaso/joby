@@ -27,6 +27,7 @@ import {
   XMarkIcon,
   PowerIcon,
   UserCircleIcon,
+  BriefcaseIcon
 } from "@heroicons/react/24/outline";
 import {
   Bars4Icon,
@@ -224,10 +225,12 @@ export function Header() {
   return (
     <Navbar shadow={true} fullWidth className="bg-transparent border-0 m-auto px-16 py-2" variant="gradient">
       <div className="flex items-center justify-between text-white">
+      
         <Typography
           variant="h6"
-          className="mr-4 cursor-pointer py-1.5 lg:ml-2 font-poppins"
+          className="mr-4 flex gap-2 cursor-pointer py-1.5 lg:ml-2 font-poppins"
         >
+          <BriefcaseIcon className="h-5 w-5"/>
           Talent Compass
         </Typography>
         <div className="hidden lg:block">
