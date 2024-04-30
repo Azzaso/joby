@@ -103,7 +103,7 @@ function ReceivedApplications() {
   };
 
   return (
-    <section className="m-10 h-full rounded-lg">
+    <section className="m-10 h-[85vh] rounded-lg">
       <Card className="h-full w-full">
         <CardHeader
           floated={false}

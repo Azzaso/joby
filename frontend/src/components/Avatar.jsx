@@ -1,9 +1,11 @@
-import { get } from 'mongoose';
 import React from 'react'
-import { useSelector } from 'react-redux'
 
 const Avatar = ({fullname}) => {
+
   function getInitials(fullName) {
+    if (!fullname) {
+      return '';
+    }
     return fullName.split(' ')
                    .map(word => word.charAt(0))
                    .join('')

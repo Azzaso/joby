@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useGetPostsQuery, useDeletePostMutation, useApplyForPostMutation } from '../../slices/postsApiSlice';
-import { Button, Typography, Card, CardFooter, CardBody, List, ListItem, ListItemPrefix } from "@material-tailwind/react";
+import { Button, Typography, Card, CardFooter, CardBody, List, ListItem, ListItemPrefix, CardHeader, Input } from "@material-tailwind/react";
 import { PlusCircleIcon } from '@heroicons/react/24/outline';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Avatar from '../../components/Avatar';
 import Popup from '../../components/Popup';
+import { BriefcaseIcon, ChevronDownIcon, MagnifyingGlassIcon, PlusIcon } from '@heroicons/react/24/solid';
 
 const JobListings = () => {
   
@@ -89,59 +90,80 @@ const JobListings = () => {
   };
 
   return (
-    <div>
-      <div className='bg-white bg-opacity-15 p-6 flex gap-6'>
-        <input
-          color='white'
-          placeholder='Search'
-          strokeWidth={3}
-          className='pl-4 flex-1 font-poppins p-2w-64 rounded-[7px] border-solid bg-transparent border-white border-[2px] focus:ring-pink-500 text-white'
-          onClick={(e) => setSearch(e.target.value)}
-        />
-        <Button color='pink' variant='gradient' className='text-sm flex gap-2'>
-          <PlusCircleIcon color='white' strokeWidth={3} className="h-5 w-5" />
-          <Link to="/dashboard/post">Create New Job</Link>
-        </Button>
-      </div>
-      <div className='grid grid-cols-4 gap-6 p-6'>
+    <section className="m-10 h-[85vh] rounded-lg ">
+      <Card className='h-full'>
+      <CardHeader
+          floated={false}
+          shadow={false}
+          className="rounded-none flex flex-wrap gap-4 justify-between mb-4"
+        >
+          <div>
+            <Typography variant="h6" color="blue-gray" className="font-poppins text-xl">
+              Job Listings
+            </Typography>
+            <Typography
+              variant="small"
+              className="text-gray-600 font-normal mt-1 font-poppins"
+            >
+              Manage your job listings.
+            </Typography>
+          </div>
+          <div className="flex items-center w-full shrink-0 gap-4 md:w-max">
+            <div className="w-full md:w-72">
+              <Input
+                size="lg"
+                label="Search"
+                icon={<MagnifyingGlassIcon className="h-5 w-5" />}
+              />
+            </div>
+            <Button
+              variant="outlined"
+              className="flex items-center gap-2"
+            >
+              Latest
+              <ChevronDownIcon strokeWidth={3} className="w-3 h-3" />
+            </Button>
+            <Button
+              variant="outlined"
+              color="gray"
+              className="flex justify-center gap-3 font-semibold md:max-w-fit w-full ml-auto"
+            >
+              <PlusIcon strokeWidth={3} className="h-4 w-4" />
+              <Link to="/dashboard/post">Add a new job offer</Link>
+            </Button>
+          </div>
+        </CardHeader>
+      <CardBody className='grid grid-cols-4 gap-6 overflow-scroll'>
         {data && data.map((post, index) => (
-          <Card key={post._id} className='p-4 h-fit'>
+          <Card key={post._id} className='p-4 h-fit border border-gray-300'>
             <CardBody className='flex flex-col'>
-              <Typography className='font-poppins text-sm mb-2'>{postedAt(post.date)}</Typography>
-              <Typography variant="h5" color="blue-gray" className='text-lg font-semibold font-poppins mb-2'>{post.title}</Typography>
-              <Typography className='font-poppins truncate-after-sentences'>{post.description}</Typography>
+            <Typography className='!text-gray-600 text-xs font-normal font-poppins mb-2'>{postedAt(post.date)}</Typography>
+            <div className="mb-4 flex items-start justify-between">
+            <div className="flex items-center gap-3">
+          <div className="border border-gray-300 p-2.5 rounded-lg">
+          <BriefcaseIcon className='w-5 h-5' color="blue-gray"/>
+          </div>
+          <div>
+            <Typography variant="small" color="blue-gray" className="mb-1 font-bold font-poppins">
+              {post.title}
+            </Typography>
+          </div>
+          </div>
+        </div>
+              <Typography className='font-poppins truncate-after-sentences text-sm'>{post.description}</Typography>
             </CardBody>
             <CardFooter className='pt-0'>
               <div className='flex gap-2 justify-end '>
-                <Button color='green' variant='gradient' className='font-poppins flex-1'>Update</Button>
+                <Button color='black' variant='gradient' className='font-poppins flex-1'>Update</Button>
                 <Button color='pink' variant='gradient' className='font-poppins flex-1' onClick={() => deleteHandler(post._id)}>Delete</Button>
-              </div>
-              <div className="mt-3 cursor-pointer flex items-center -space-x-4 overflow-hidden" onClick={() => setShowPopupIndex(index)}>
-                {post.applicants.map((applicantId) => (
-                  <Avatar key={applicantId} fullname={`${applicantNames[applicantId]}`} />
-                ))}
-              </div>
-              <div>
-                {showPopupIndex === index && isPopupOpen && (
-                  <Popup isOpen={true} onClose={closePopup}>
-                    <List>
-                      {post.applicants.map((applicantId) => (
-                        <ListItem key={applicantId}>
-                          <ListItemPrefix>
-                          <Avatar key={applicantId} fullname={`${applicantNames[applicantId]}`} />
-                          </ListItemPrefix>
-                          <div className='text-gray-900 font-normal'>{`${applicantNames[applicantId]}`}</div>
-                        </ListItem>
-                      ))}
-                    </List>
-                  </Popup>    
-                )}
               </div>
             </CardFooter>
           </Card>
         ))}
-      </div>
-    </div>
+      </CardBody>
+      
+      </Card>
+    </section>
   );
 };
 

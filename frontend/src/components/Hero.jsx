@@ -19,7 +19,7 @@ function Hero() {
             <Typography
               variant="h1"
               color="white"
-              className="mx-auto my-6 w-full leading-snug text-2xl sm:text-5xl lg:text-6xl max-w-7xl xl:text-8xl font-poppins"
+              className="mx-auto my-6 w-full leading-snug text-2xl sm:text-5xl lg:text-6xl max-w-7xl xl:text-[5.5em] font-poppins"
             >
               Chart your course to HR success with Talent Compass.
               
