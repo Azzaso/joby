@@ -197,7 +197,7 @@ function ReceivedApplications() {
                           <Avatar key={applicantId} fullname={`${applicantNames[applicantId]}`} />
                           ))}
                           </div>
-                          <Popup open={openPopups[index]} handleOpen={() => handleClosePopup(index)}>
+                          <Popup title="Applicants" open={openPopups[index]} handleOpen={() => handleClosePopup(index)}>
                       <List>
                       {post.applicants.map((applicantId) => (
                         <ListItem key={applicantId} className="flex justify-between" >

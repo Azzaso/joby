@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useGetPostsQuery, useDeletePostMutation, useApplyForPostMutation } from '../../slices/postsApiSlice';
-import { Button, Typography, Card, CardFooter, CardBody, List, ListItem, ListItemPrefix, CardHeader, Input } from "@material-tailwind/react";
+import { Button, Typography, Card, CardFooter, CardBody, CardHeader, Input } from "@material-tailwind/react";
 import { PlusCircleIcon } from '@heroicons/react/24/outline';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';

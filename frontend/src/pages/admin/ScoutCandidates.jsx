@@ -83,7 +83,7 @@ const ScoutCandidates = () => {
           <div key={user._id} className='flex flex-col'>
           <div className='flex w-full justify-between items-center'>
             <div className='flex gap-2'>
-            <Avatar>{user.name}</Avatar>
+            <Avatar fullname={user.name}/>
             <div>
             <Typography variant="h5" color="blue-gray" className='text-md font-semibold font-poppins'>
             {user.name}</Typography>
@@ -91,12 +91,10 @@ const ScoutCandidates = () => {
             </div>
             </div>
             <div>
-            
             <Button color='pink' variant='gradient' className='font-poppins flex-1 m-1'>Contact</Button>
           <Button color='black' variant='outlined' className='font-poppins flex-1 m-1'>View Profile</Button>
           <Button size='sm' color='pink' variant="outlined" className='font-poppins flex-1 m-1 w-fit h-fit' onClick={() => deleteHandler(user._id)}><TrashIcon className='w-5 h-5'/></Button>
             </div>
-
           </div>
           </div>
         </tr>
