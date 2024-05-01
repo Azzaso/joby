@@ -13,6 +13,7 @@ import ScoutCandidates from "./pages/admin/ScoutCandidates";
 import SearchOpportunities from "./pages/candidate/SearchOpportunities";
 import DashboardHome from "./pages/DashboardHome";
 import ReceivedApplications from "./pages/admin/ReceivedApplications";
+import AppliedJobs from "./pages/candidate/AppliedJobs";
  
 const App = () => {
   return (
@@ -36,8 +37,11 @@ const App = () => {
          <Route path="/dashboard/joblistings" element={<JobListings/>}/>
          <Route path="/dashboard/candidates" element={<ScoutCandidates/>}/>
          <Route path="/dashboard/applications" element={<ReceivedApplications/>}/>
-         {/*Recruiter Routes*/}
+         {/*Candidate Routes*/}
          <Route path="/dashboard/search" element={<SearchOpportunities/>}/>
+         <Route path="/dashboard/applied" element={<AppliedJobs/>}/>
+
+
         </Route>
         </Route>
       </Routes>

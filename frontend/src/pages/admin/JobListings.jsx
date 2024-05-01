@@ -155,7 +155,7 @@ const JobListings = () => {
             <CardFooter className='pt-0'>
               <div className='flex gap-2 justify-end '>
                 <Button color='black' variant='gradient' className='font-poppins flex-1'>Update</Button>
-                <Button color='pink' variant='gradient' className='font-poppins flex-1' onClick={() => deleteHandler(post._id)}>Delete</Button>
+                <Button color='pink' variant='outlined' className='font-poppins flex-1' onClick={() => deleteHandler(post._id)}>Delete</Button>
               </div>
             </CardFooter>
           </Card>

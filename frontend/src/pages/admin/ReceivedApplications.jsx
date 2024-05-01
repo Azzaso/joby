@@ -105,10 +105,10 @@ function ReceivedApplications() {
   return (
     <section className="m-10 h-[85vh] rounded-lg">
       <Card className="h-full w-full">
-        <CardHeader
+        <div
           floated={false}
           shadow={false}
-          className="rounded-none flex flex-wrap gap-4 justify-between mb-4"
+          className="rounded-none flex flex-wrap gap-4 justify-between mb-4 p-4"
         >
           <div>
             <Typography variant="h6" color="blue-gray" className="font-poppins text-xl">
@@ -137,8 +137,9 @@ function ReceivedApplications() {
               <ChevronDownIcon strokeWidth={3} className="w-3 h-3" />
             </Button>
           </div>
-        </CardHeader>
-        <CardBody className="overflow-scroll !px-0 py-2">
+        </div>
+        
+        <CardBody className="overflow-scroll !px-2 py-0">
           <table className="w-full min-w-max table-auto">
             <thead>
               <tr>

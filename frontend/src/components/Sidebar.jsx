@@ -103,7 +103,7 @@ export function Sidebar() {
                 <ListItemPrefix>
                   <DocumentArrowUpIcon strokeWidth={3} className="h-5 w-5 ml-3" />
                 </ListItemPrefix>
-                Applied jobs
+                <Link to="/dashboard/applied">Applied jobs</Link>   
               </ListItem>
               <ListItem>
                 <ListItemPrefix>

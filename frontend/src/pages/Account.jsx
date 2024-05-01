@@ -4,7 +4,9 @@ import {
   Input,
   Button,
   Typography,
-  Card
+  Card,
+  List,
+  ListItem
 } from "@material-tailwind/react";
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
@@ -46,13 +48,15 @@ const Account = () => {
    }
   }
   return (
-     <Card color="transparent" shadow={false} className="font-poppin flex items-center justify-center mt-20 bg-white bg-opacity-10 p-12 rounded-none ">
-      <Typography variant="h4" color="white" className="font-poppins flex flex-start text-4xl">
-        Update Account
+    <section className="m-10 h-[85vh] rounded-lg">
+     <Card color="transparent" shadow={false} className="font-poppins p-20 mt-10 bg-white h-full flex flex-row">
+      <div className='w-1/2 '>
+      <Typography variant="h4" color="blue-gray" className="font-poppins flex flex-start text-4xl">
+        Edit Account
       </Typography>
-      <form className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96 rounded-lg " onSubmit={submitHandler}>
+      <form className="mt-8 mb-2 w-full max-w-screen-lg rounded-lg " onSubmit={submitHandler}>
         <div className="mb-1 flex flex-col gap-6">
-          <Typography variant="h6" color="white" className="-mb-3 font-poppins">
+          <Typography variant="h6" color="blue-gray" className="-mb-3 font-poppins">
             Name
           </Typography>
           <Input
@@ -65,7 +69,7 @@ const Account = () => {
               className: "before:content-none after:content-none",
             }}  
           />
-          <Typography variant="h6" color="white" className="-mb-3 font-poppins">
+          <Typography variant="h6" color="blue-gray" className="-mb-3 font-poppins">
             Email
           </Typography>
           <Input
@@ -78,7 +82,7 @@ const Account = () => {
               className: "before:content-none after:content-none",
             }}
           />
-          <Typography variant="h6" color="white" className="-mb-3 font-poppins">
+          <Typography variant="h6" color="blue-gray" className="-mb-3 font-poppins">
             Password
           </Typography>
           <Input
@@ -92,7 +96,7 @@ const Account = () => {
               className: "before:content-none after:content-none",
             }}
           />
-          <Typography variant="h6" color="white" className="-mb-3 font-poppins">
+          <Typography variant="h6" color="blue-gray" className="-mb-3 font-poppins">
             Confirm Password
           </Typography>
           <Input
@@ -107,11 +111,49 @@ const Account = () => {
             }}
           />
         </div>
-        <Button className="mt-6 font-poppins text-md" color="pink" variant="gradient" type="submit" fullWidth>
+        <Button className="mt-10 w-96 font-poppins text-md" color="pink" variant="gradient" type="submit" fullWidth>
           Save
         </Button>
       </form>
+      </div>
+     
+      <div className='px-28 flex flex-col justify-center'>
+        <Typography variant="h6" color="blue-gray" className="-mb-3 font-poppins">Password Requirement</Typography>
+        <Typography
+              variant="small"
+              className="text-gray-600 font-normal mt-4 font-poppins mb-2"
+            >
+              Please follow this guide for a strong password:
+            </Typography>
+            <ul className='list-disc ml-4 text-sm'>
+            <li
+              className="text-gray-600 font-normal mt-2 font-poppins"
+            >
+              - One special characters ( ! @ # $ % ^ & * ( ) - _ = + )
+            </li>
+            <li
+              
+              className="text-gray-600 font-normal mt-2 font-poppins"
+            >
+              - Min 6 characters
+            </li>
+            <li
+             
+              className="text-gray-600 font-normal mt-2 font-poppins"
+            >
+             - One number (2 are recommended):
+            </li>
+            <li
+              className="text-gray-600 font-normal mt-2 font-poppins"
+            >
+             - Change it often
+            </li>
+            </ul>
+
+      </div>
     </Card>
+    
+    </section>
   );
 }
 

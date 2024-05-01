@@ -116,14 +116,14 @@ const SearchOpportunities = () => {
             </CardBody>
             <CardFooter className='pt-0'>
               <div className='flex gap-2 justify-end '>
-                <Button color='black' variant='gradient' className='font-poppins flex-1' onClick={() => handleOpenPopup(index)}>Learn more</Button>
-                <Button color='pink' variant='outlined' className='font-poppins flex-1' onClick={() => applyHandler(post._id, userInfo._id)}>Apply</Button>
+                <Button color='black' variant='outlined' className='font-poppins flex-1' onClick={() => handleOpenPopup(index)}>Learn more</Button>
+                <Button color='pink' variant='gradient' className='font-poppins flex-1' onClick={() => applyHandler(post._id, userInfo._id)}>Apply</Button>
               </div>
               <Popup title="Job Description" open={openPopups[index]} handleOpen={() => handleClosePopup(index)}>
                 <div>
                   <div className='ml-6 text-lg font-semibold'>{post.title}</div>
                   <CardBody>{post.description}</CardBody>
-                  <CardFooter className='flex'><Button color='pink' variant='outlined' className='font-poppins flex-1' onClick={() => applyHandler(post._id, userInfo._id)}>Apply</Button></CardFooter>
+                  <CardFooter className='flex'><Button color='pink' variant='gradient' className='font-poppins flex-1' onClick={() => applyHandler(post._id, userInfo._id)}>Apply</Button></CardFooter>
                 </div>
               </Popup>
             </CardFooter>

@@ -30,25 +30,26 @@ const PostCreationScreen = () => {
   }
 
   return (
-    <Card color="transparent" shadow={false} className="font-poppins flex items-center mt-20 bg-white bg-opacity-10 p-12">
-     <Typography variant="h4" color="white" className="font-poppins text-4xl">
-       Create New Job
+    <section className='m-10 h-[85vh] rounded-lg'>
+    <Card color="transparent" shadow={false} className="font-poppins p-20 mt-10 bg-white  h-full">
+     <Typography variant="h4" color="blue-gray" className="font-poppins text-4xl">
+       Create a new job
      </Typography>
-     <form className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96" onSubmit={handleSubmit} >
-       <div className="mb-1 flex flex-col gap-6">
-         <Typography variant="h6" color="white" className="-mb-3 font-poppins">
+     <form className="w-full mt-8 mb-2" onSubmit={handleSubmit} >
+       <div className="mb-1 w-full flex flex-col gap-6">
+         <Typography variant="h6" color="blue-gray" className="-mb-3 font-poppins">
            Title
          </Typography>
          <Input
            size="lg"
-           className=" !border-t-blue-gray-200 focus:!border-pink-500"
+           className=" !border-t-blue-gray-200 focus:!border-pink-500 w-full"
            value={title}
            onChange={(e)=>{setTitle(e.target.value)}}
            labelProps={{
              className: "before:content-none after:content-none",
            }}
          />
-         <Typography variant="h6" color="white" className="-mb-3 font-poppins">
+         <Typography variant="h6" color="blue-gray" className="-mb-3 font-poppins">
            Category
          </Typography>
          <Input
@@ -60,18 +61,20 @@ const PostCreationScreen = () => {
              className: "before:content-none after:content-none",
            }}
          />
-         <Typography variant="h6" color="white" className="-mb-3 font-poppins">
+         <Typography variant="h6" color="blue-gray" className="-mb-3 font-poppins">
            Description
          </Typography>
          <Textarea color="pink"
+         className='h-[20vh]'
           value={description}
           onChange={(e)=>{setDescription(e.target.value)}}></Textarea>
        </div>
-       <Button className="mt-6 font-poppins text-md" color="pink" variant="gradient" type="submit" disabled={isLoading} fullWidth>
+       <Button className="mt-6 font-poppins text-md w-96" color="black" variant="gradient" type="submit" disabled={isLoading} >
          Submit
        </Button>
      </form>
    </Card>
+   </section>
   )
 }
 
