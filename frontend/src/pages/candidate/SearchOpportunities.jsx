@@ -130,8 +130,10 @@ const SearchOpportunities = () => {
           </Card>
         ))}
       </CardBody>
+      <CardFooter></CardFooter>
       
       </Card>
+
     </section>
   );
 };

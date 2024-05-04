@@ -18,6 +18,10 @@ const userSchema = mongoose.Schema(
       type:String,
       required :true
     },
+    appliedJobs:[{
+      type:mongoose.Schema.Types.ObjectId,
+      ref: 'Post',
+    }]
   });
 
   userSchema.methods.matchPasswords = async function (enteredPassword){

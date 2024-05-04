@@ -53,6 +53,8 @@ const applyForPost = asyncHandler(async(req,res)=> {
       throw new Error("you already applied for this post");
     }else{
       post.applicants.push(user._id);
+      user.appliedJobs.push(post._id);
+      await user.save();
       await post.save();
       post.numApplicants = post.applicants.length;
       res.status(200).json({message : "Application added", NumberOfApplications:post.numApplicants, Applicants:post.applicants});
@@ -62,9 +64,17 @@ const applyForPost = asyncHandler(async(req,res)=> {
   }
 })
 
+const getPostDetails = asyncHandler(async(req, res)=>{
+  const post = await Post.findById(req.params.id);
+  if(post){
+    res.status(200).json({title:post.title, category:post.category, description:post.description})
+  }else{
+    res.status(401).json({message: "Post no found"});
+  }
+})
 
 //@desc update post
 //route PUT /api/posts/
 //@access PRIVATE
 
- export {getPosts, createPost, deletePost,applyForPost};
+ export {getPosts, createPost, deletePost,applyForPost, getPostDetails};

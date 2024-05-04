@@ -135,7 +135,6 @@ const getUserInfo = asyncHandler(async(req, res)=>{
     res.status(401);
     throw new Error('User not found');
   }
-
 })
 
 

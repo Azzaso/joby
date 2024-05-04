@@ -4,7 +4,6 @@ import {
   Button,
   Typography,
   Card,
-  CardHeader,
   CardBody,
   Input,
   CardFooter,
@@ -19,7 +18,6 @@ import {
 } from "@heroicons/react/24/solid";
 import { useGetPostsQuery } from "../../slices/postsApiSlice";
 import Popup from "../../components/Popup";
-import gradient from "@material-tailwind/react/theme/components/timeline/timelineIconColors/gradient";
 
 function formatDate(dateString) {
   const date = new Date(dateString);
