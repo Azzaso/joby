@@ -19,8 +19,14 @@ const userSchema = mongoose.Schema(
       required :true
     },
     appliedJobs:[{
-      type:mongoose.Schema.Types.ObjectId,
-      ref: 'Post',
+      post: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Post'
+      },
+      appliedAt: {
+        type: Date,
+        default: Date.now
+      }
     }]
   });
 

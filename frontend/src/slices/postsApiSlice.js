@@ -10,9 +10,10 @@ export const postsApiSlice = apiSlice.injectEndpoints({
     }),
     getPostDetails: builder.query({
       query : (postId) => ({
-        url: `${POSTS_URL}/${postId}`
+        url: `${POSTS_URL}/${postId}`,
+        method: 'GET',
       }),
-      providesTags: ['Posts'],
+     
     }),
     createPost: builder.mutation({
       query: (data) => ({

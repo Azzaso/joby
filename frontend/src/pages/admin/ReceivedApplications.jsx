@@ -19,7 +19,7 @@ import {
 import { useGetPostsQuery } from "../../slices/postsApiSlice";
 import Popup from "../../components/Popup";
 
-function formatDate(dateString) {
+export function formatDate(dateString) {
   const date = new Date(dateString);
   const options = { year: "numeric", month: "long", day: "numeric", hour: "numeric", minute: "numeric", second: "numeric", timeZoneName: "short" };
   return date.toLocaleDateString("en-US", options);
@@ -199,13 +199,11 @@ function ReceivedApplications() {
                           <Popup title="Applicants" open={openPopups[index]} handleOpen={() => handleClosePopup(index)}>
                       <List>
                       {post.applicants.map((applicantId) => (
-                        <ListItem key={applicantId} className="flex justify-between" >
-                          
+                        <ListItem key={applicantId} className="flex justify-between" > 
                           <ListItemPrefix className="flex gap-2">
                           <Avatar key={applicantId} fullname={`${applicantNames[applicantId]}`} />
                           <div className='text-gray-900 font-normal'>{`${applicantNames[applicantId]}`}</div>
                           </ListItemPrefix>
-                          
                           <div className="flex gap-2 ">
                           <Button variant="gradient" color='black' className="font-poppins">View Profile</Button>
                           <Button variant="gradient" color='pink' className="font-poppins">Contact</Button>

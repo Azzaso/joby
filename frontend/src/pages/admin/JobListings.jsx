@@ -95,7 +95,7 @@ const JobListings = () => {
       <CardHeader
           floated={false}
           shadow={false}
-          className="rounded-none flex flex-wrap gap-4 justify-between mb-4"
+          className="rounded-none flex flex-wrap gap-4 justify-between mb-4 h-32"
         >
           <div>
             <Typography variant="h6" color="blue-gray" className="font-poppins text-xl">
@@ -161,7 +161,7 @@ const JobListings = () => {
           </Card>
         ))}
       </CardBody>
-      
+      <CardFooter><div></div></CardFooter>
       </Card>
     </section>
   );

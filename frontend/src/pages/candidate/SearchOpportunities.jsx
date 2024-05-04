@@ -65,7 +65,7 @@ const SearchOpportunities = () => {
       <CardHeader
           floated={false}
           shadow={false}
-          className="rounded-none flex flex-wrap gap-4 justify-between mb-4"
+          className="rounded-none flex flex-wrap gap-4 justify-between mb-4 h-32"
         >
           <div>
             <Typography variant="h6" color="blue-gray" className="font-poppins text-xl">
@@ -95,6 +95,7 @@ const SearchOpportunities = () => {
             </Button>
           </div>
         </CardHeader>
+        
       <CardBody className='grid grid-cols-4 gap-6 overflow-scroll'>
         {data && data.map((post, index) => (
           <Card key={post._id} className='p-4 h-fit border shadow-md border-gray-300'>
@@ -130,10 +131,8 @@ const SearchOpportunities = () => {
           </Card>
         ))}
       </CardBody>
-      <CardFooter></CardFooter>
-      
+      <CardFooter><div></div></CardFooter>
       </Card>
-
     </section>
   );
 };
