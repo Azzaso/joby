@@ -27,11 +27,6 @@ const postSchema = mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref:'User',
     }],
-    numApplications :{
-      type:Number,
-      required: true,
-      default: 0,
-    },
     date: {
       type: Date,
       default: Date.now

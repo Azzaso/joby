@@ -205,7 +205,7 @@ function ReceivedApplications() {
                           <div className='text-gray-900 font-normal'>{`${applicantNames[applicantId]}`}</div>
                           </ListItemPrefix>
                           <div className="flex gap-2 ">
-                          <Button variant="gradient" color='black' className="font-poppins">View Profile</Button>
+                          <Button variant="outlined" color='black' className="font-poppins">View Profile</Button>
                           <Button variant="gradient" color='pink' className="font-poppins">Contact</Button>
                           </div>
                         </ListItem>
@@ -220,7 +220,7 @@ function ReceivedApplications() {
                           color='black'
                           className="!font-semibold text-left text-gray-800 bg-gray-300  rounded-md w-fit px-2 font-poppins"
                         >
-                          Category
+                          {post.category}
                         </Typography>
                       </td>
                       <td className={classes}>

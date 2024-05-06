@@ -56,8 +56,7 @@ const applyForPost = asyncHandler(async(req,res)=> {
       user.appliedJobs.push(post._id);
       await user.save();
       await post.save();
-      post.numApplicants = post.applicants.length;
-      res.status(200).json({message : "Application added", NumberOfApplications:post.numApplicants, Applicants:post.applicants});
+      res.status(200).json({message : "Application added", Applicants:post.applicants});
     }
   }else{
     res.status(404).json({ message: "Post not found" });

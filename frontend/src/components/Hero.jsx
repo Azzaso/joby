@@ -14,7 +14,7 @@ function Hero() {
         <div className="mt-6 sm:mt-40">
           <div className="container mx-auto px-4 text-center">
             <Typography className="inline-flex font-poppins text-xs rounded-lg border-[1.5px] bg-pink-500 bg-opacity-30 border-pink-500  py-1 lg:px-4 px-1 font-medium text-white border-double">
-              Exciting News! Introducing Talent Compass
+              Introducing the new HR tool : Talent Compass
             </Typography>
             <Typography
               variant="h1"

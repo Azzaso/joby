@@ -1,62 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { useGetPostsQuery, useDeletePostMutation, useApplyForPostMutation } from '../../slices/postsApiSlice';
+import React from 'react';
+import { useGetPostsQuery, useDeletePostMutation } from '../../slices/postsApiSlice';
 import { Button, Typography, Card, CardFooter, CardBody, CardHeader, Input } from "@material-tailwind/react";
-import { PlusCircleIcon } from '@heroicons/react/24/outline';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import Avatar from '../../components/Avatar';
-import Popup from '../../components/Popup';
 import { BriefcaseIcon, ChevronDownIcon, MagnifyingGlassIcon, PlusIcon } from '@heroicons/react/24/solid';
 
 const JobListings = () => {
   
   const { data, isLoading, error, refetch } = useGetPostsQuery();
-  const { userInfo } = useSelector((state) => state.auth);
   const [deletePost, { isLoading: loadingDelete }] = useDeletePostMutation();
-  const [applyForPost, { isLoading: loadingApply }] = useApplyForPostMutation();
-  const [showPopupIndex, setShowPopupIndex] = useState(null);
-  const [search, setSearch] = useState('');
-  const [applicantNames, setApplicantNames] = useState({});
-
-  const [isPopupOpen, setIsPopupOpen] = useState(true);
-  const closePopup = () => {
-    setIsPopupOpen(false);
-    
-  };
-
-  useEffect(() => {
-    const fetchApplicantNames = async () => {
-      const names = {};
-      try {
-        for (const post of data) {
-          for (const applicantId of post.applicants) {
-            if (!names[applicantId]) {
-              const name = await fetchUserName(applicantId);
-              names[applicantId] = name;
-            }
-          }
-        }
-        setApplicantNames(names);
-      } catch (error) {
-        console.error("Error fetching applicant names:", error);
-      }
-    };
-
-    if (data) {
-      fetchApplicantNames();
-    }
-  }, [data]);
-
-  const fetchUserName = async (userId) => {
-    try {
-      const response = await fetch(`/api/users/${userId}`);
-      const userData = await response.json();
-      return userData.name;
-    } catch (error) {
-      console.error("Error fetching user info:", error);
-      return "Unknown";
-    }
-  };
 
   const deleteHandler = async (id) => {
     if (window.confirm('Are you sure you want to delete this post?')) {

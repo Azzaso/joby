@@ -65,7 +65,7 @@ const PostCreationScreen = () => {
            Description
          </Typography>
          <Textarea color="pink"
-         className='h-[23vh]'
+         className='h-[15em]'
           value={description}
           onChange={(e)=>{setDescription(e.target.value)}}></Textarea>
        </div>

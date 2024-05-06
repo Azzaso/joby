@@ -1,12 +1,13 @@
 import React from 'react';
 import Widget from "../components/Widget";
-import UploadResume from '../components/UploadResume';
+import Charts from '../components/Charts';
+
 
 const DashboardHome = () => {
   return (
     <div>
       <Widget/>
-      <UploadResume/>
+      <Charts/>
     </div>
   )
 }
