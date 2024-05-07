@@ -40,6 +40,7 @@ const App = () => {
          {/*Candidate Routes*/}
          <Route path="/dashboard/search" element={<SearchOpportunities/>}/>
          <Route path="/dashboard/applied" element={<AppliedJobs/>}/>
+         <Route path="/dashboard/myresume" element={<DashboardHome/>}/>
 
 
         </Route>

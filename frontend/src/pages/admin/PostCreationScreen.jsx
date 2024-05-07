@@ -10,7 +10,7 @@ import {
 
 const PostCreationScreen = () => {
   const [title, setTitle] = useState('');
-  const [image, setImage] = useState('');
+  const [category, setCategory] = useState('');
   const [description, setDescription] = useState('');
   
   const [createPost, {isLoading}] = useCreatePostMutation();
@@ -20,7 +20,7 @@ const PostCreationScreen = () => {
     try {
       const formData = {
         title: title,
-        image: image,
+        category: category,
         description: description}
         await createPost(formData).unwrap();
         alert('New Job Created')
@@ -55,8 +55,8 @@ const PostCreationScreen = () => {
          <Input
            size="lg"
            className=" !border-t-blue-gray-200 focus:!border-pink-500"
-           value={image}
-           onChange={(e)=>{setImage(e.target.value)}}
+           value={category}
+           onChange={(e)=>{setCategory(e.target.value)}}
            labelProps={{
              className: "before:content-none after:content-none",
            }}
@@ -65,7 +65,7 @@ const PostCreationScreen = () => {
            Description
          </Typography>
          <Textarea color="pink"
-         className='h-[15em]'
+         className='h-52'
           value={description}
           onChange={(e)=>{setDescription(e.target.value)}}></Textarea>
        </div>

@@ -73,13 +73,13 @@ export function Sidebar() {
                 <ListItemPrefix>
                   <DocumentTextIcon strokeWidth={3} className="h-5 w-5 ml-3" />
                 </ListItemPrefix>
-                My Resume
+                <Link to="/dashboard/myresume">My Resume</Link>
               </ListItem>
               <ListItem>
                 <ListItemPrefix>
                   <AdjustmentsVerticalIcon strokeWidth={3} className="h-5 w-5 ml-3" />
                 </ListItemPrefix>
-                Edit Profile
+                <Link to="/dashboard/account">Edit Profile</Link>
               </ListItem>
             </List>
         
